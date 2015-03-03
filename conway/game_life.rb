@@ -26,6 +26,23 @@ class Matrix
     puts row.map { |col| col}.join(' ')
   end
 
+def count_alive_neighbors(x, y)
+ # x = row number
+ # y = col number
+ alive_counter = 0
+
+ alive_counter += 1 if @board[x-1][y-1] == '0'
+ alive_counter += 1 if @board[x-1][y] == '0'
+ alive_counter += 1 if @board[x-1][y+1] == '0'
+ alive_counter += 1 if @board[x][y-1] == '0'
+ alive_counter += 1 if @board[x-1][y+1] == '0'
+ alive_counter += 1 if @board[x+1][y-1] == '0'
+ alive_counter += 1 if @board[x+1][y] == '0'
+ alive_counter += 1 if @board[x+1][y+1] == '0'
+
+ return alive_counter
+end 
+
 def world(rows = x, cols = y)
     
 
